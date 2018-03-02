@@ -1,0 +1,33 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Invite User'|translate}}</strong>
+        </div>
+        <div class="card-block">
+          <form action="" class="form-horizontal " method="post">
+            <div class="form-group row">
+              <label class="col-md-3 form-control-label" for="hf-email">{{'Email'|translate}}</label>
+              <div class="col-md-9">
+                <input class="form-control" [(ngModel)]="email" id="hf-email" name="hf-email" placeholder="{{'Enter Email'|translate}}" type="email">
+                <span class="help-block">{{'Please enter your email'|translate}}</span>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+              <button class="btn btn-primary" type="button" (click)="invite()"><i class="fa fa-dot-circle-o"></i> {{'Invite'|translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

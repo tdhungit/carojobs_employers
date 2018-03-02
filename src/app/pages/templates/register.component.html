@@ -1,0 +1,67 @@
+<div class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <alert></alert>
+        <div class="card mx-2">
+          <div class="card-block p-2">
+            <h1>Register</h1>
+            <p class="text-muted">{{'Create your account'|translate}}</p>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-credit-card"></i></span>
+              <input type="text" class="form-control" [(ngModel)]="model.company_name" placeholder="{{'Company Name'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-info"></i></span>
+              <input type="text" class="form-control" [(ngModel)]="model.first_name" placeholder="{{'First Name'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-info"></i></span>
+              <input type="text" class="form-control" [(ngModel)]="model.last_name" placeholder="{{'Last Name'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" [(ngModel)]="model.email" placeholder="{{'Email'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-phone"></i></span>
+              <input type="text" class="form-control" [(ngModel)]="model.phone" placeholder="{{'Phone'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input type="text" class="form-control" [(ngModel)]="model.username" placeholder="{{'Username'|translate}}">
+            </div>
+
+            <div class="input-group mb-1">
+              <span class="input-group-addon"><i class="icon-lock"></i></span>
+              <input type="password" class="form-control" [(ngModel)]="model.password" placeholder="{{'Password'|translate}}">
+            </div>
+
+            <div class="input-group mb-2">
+              <span class="input-group-addon"><i class="icon-lock"></i></span>
+              <input type="password" class="form-control" [(ngModel)]="model.password_confirm" placeholder="{{'Repeat password'|translate}}">
+            </div>
+
+            <button type="button" (click)="register()" class="btn btn-block btn-success">{{'Create Account'|translate}}</button>
+          </div>
+          <div class="card-footer p-2">
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

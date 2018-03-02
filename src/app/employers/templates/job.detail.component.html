@@ -1,0 +1,66 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Job'|translate}}: {{model.name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/jobs/list']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Name'|translate}}</td>
+              <td>{{model.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Category'|translate}}</td>
+              <td>{{model.category.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Detail'|translate}}</td>
+              <td>{{model.detail}}</td>
+            </tr>
+            <tr>
+              <td>{{'Summary'|translate}}</td>
+              <td>
+                <div>{{model.summary_1}}</div>
+                <div>{{model.summary_2}}</div>
+                <div>{{model.summary_3}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Company'|translate}}</td>
+              <td>{{model.company.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Location'|translate}}</td>
+              <td>
+                <div>{{model.location.name}}</div>
+                <div>{{model.location.email}}</div>
+                <div>{{model.location.phone}}</div>
+                <div>{{model.location.address1}}, {{model.location.address2}}, {{model.location.state}},
+                  {{model.location.city}}, {{model.location.post_code}}, {{model.location.country}}</div>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Type'|translate}}</td>
+              <td>{{model.type|label_select:'employment_types'}}</td>
+            </tr>
+            <tr>
+              <td>{{'Salary'|translate}}</td>
+              <td>{{model.salary_min}} ~ {{model.salary_max}}
+                {{model.salary_currency|label_select:'currencies'}} / {{model.salary_type|label_select:'salary_types'}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

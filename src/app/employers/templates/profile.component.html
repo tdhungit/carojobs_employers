@@ -1,0 +1,14 @@
+<div class="animated fadeIn">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link {{getClassName('/employers/profile/information')}}" [routerLink]="['/employers/profile/information']">{{'My Profile'|translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {{getClassName('/employers/profile/change-password')}}" [routerLink]="['/employers/profile/change-password']">{{'Change Password'|translate}}</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Account'|translate}}: {{model.name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/settings/accounts']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Logo'|translate}}</td>
+              <td>
+                <img *ngIf="model?.logo?.length > 2" [src]="media_url + model?.logo" class="avatar">
+                <span *ngIf="model?.logo?.length <= 2" class="avatar">{{model.logo}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Name'|translate}}</td>
+              <td>{{model.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Email'|translate}}</td>
+              <td>{{model.email}}</td>
+            </tr>
+            <tr>
+              <td>{{'Phone'|translate}}</td>
+              <td>{{model.phone}}</td>
+            </tr>
+            <tr>
+              <td>{{'Industry'|translate}}</td>
+              <td>{{model.industry}}</td>
+            </tr>
+            <tr>
+              <td>{{'Number Employee'|translate}}</td>
+              <td>{{model.number_employee}}</td>
+            </tr>
+            <tr>
+              <td>{{'Membership'|translate}}</td>
+              <td>{{model.membership.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Address'|translate}}</td>
+              <td>
+                {{model.address1}}, {{model.address2}}, {{model.state}}, {{model.city}}, {{model.post_code}}, {{model.country}}
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Billing Address'|translate}}</td>
+              <td>
+                {{model.billing_address1}}, {{model.billing_address2}}, {{model.billing_state}}, {{model.billing_city}}, {{model.billing_post_code}}, {{model.billing_country}}
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Description'|translate}}</td>
+              <td><ckeditor [(ngModel)]="model.description"></ckeditor></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

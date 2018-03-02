@@ -1,0 +1,81 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Hiring Company'|translate}}: {{model.name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/settings/companies']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Logo'|translate}}</td>
+              <td>
+                <img *ngIf="model?.logo?.length > 2" [src]="media_url + model?.logo" class="avatar">
+                <span *ngIf="model?.logo?.length <= 2" class="avatar">{{model.logo}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Name'|translate}}</td>
+              <td>{{model.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Phone'|translate}}</td>
+              <td>{{model.phone}}</td>
+            </tr>
+            <tr>
+              <td>{{'Email'|translate}}</td>
+              <td>{{model.email}}</td>
+            </tr>
+            <tr>
+              <td>{{'Description'|translate}}</td>
+              <td><ckeditor [(ngModel)]="model.description"></ckeditor></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Locations'|translate}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/settings/detail-company/' + id + '/create-location']"><i class="icon-plus"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>{{'Name'|translate}}</th>
+              <th>{{'Email'|translate}}</th>
+              <th>{{'Phone'|translate}}</th>
+              <th>{{'Address'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.location_set">
+              <td>{{item.name}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.phone}}</td>
+              <td>{{item.address1}}, {{item.address2}}, {{item.state}}, {{item.city}}, {{item.post_code}}, {{item.country}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,116 @@
+<header class="app-header navbar">
+    <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">&#9776;</button>
+    <a class="navbar-brand" href="#"></a>
+    <ul class="nav navbar-nav hidden-md-down">
+        <li class="nav-item">
+            <a class="nav-link navbar-toggler sidebar-toggler" href="#">&#9776;</a>
+        </li>
+    </ul>
+
+    <ul righttopmenu class="nav navbar-nav ml-auto"></ul>
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']">
+                      <i class="icon-speedometer"></i> {{'Dashboard'|translate}}
+                      <span class="badge badge-info">NEW</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/employers/jobs/list']">
+                        <i class="icon-speedometer"></i> {{'Jobs'|translate}}
+                    </a>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="javascript:void(0)">
+                        <i class="icon-star"></i> {{'Recruitment'|translate}}</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/candidates/list']">
+                                <i class="icon-speedometer"></i> {{'Candidate'|translate}}
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/candidates/resume/list']">
+                                <i class="icon-speedometer"></i> {{'Resume'|translate}}
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/candidates/education/list']">
+                                <i class="icon-speedometer"></i> {{'Education'|translate}}
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/candidates/experience/list']">
+                                <i class="icon-speedometer"></i> {{'Experences'|translate}}
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/candidates/experience-skill/list']">
+                                <i class="icon-speedometer"></i> {{'Experences kill'|translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/dashboard']">
+                        <i class="icon-speedometer"></i> {{'Reports'|translate}}
+                    </a>
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="javascript:void(0)">
+                        <i class="icon-star"></i> {{'Settings'|translate}}</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/employers/settings/accounts']">
+                                <i class="icon-speedometer"></i> {{'Accounts'|translate}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/employers/settings/companies']">
+                                <i class="icon-speedometer"></i> {{'Hiring Company'|translate}}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [routerLink]="['/employers/settings/users']">
+                                <i class="icon-speedometer"></i> {{'Users'|translate}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb">
+            <breadcrumbs></breadcrumbs>
+        </ol>
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+</div>
+
+<footer class="app-footer">
+    <a href="http://carodev.com">CaroJobs</a> &copy; 2017 CaroDev.
+    <span class="float-right">Powered by <a href="http://carodev.com">CaroDev</a>
+    </span>
+</footer>

@@ -1,0 +1,45 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> {{'Experences Manager'|translate}}
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>{{'Experience'|translate}}</th>
+              <th>{{'Resume'|translate}}</th>
+              <th>{{'Date start'|translate}}</th>
+              <th>{{'Date end'|translate}}</th>
+              <th>{{'Action'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.results">
+              <td><a [routerLink]="['/candidates/experience/detail-experience/' + item.id]">{{item.name}}</a></td>
+              <td><a [routerLink]="['/candidates/resume/detail-resume/' + item.resume.id]">{{item.resume.name}}</a></td>
+              <td>{{item.date_start}}</td>
+              <td>{{item.date_end}}</td>
+              <td>
+                  <a title="{{'Detail'|translate}}" [routerLink]="['/candidates/experience/detail-experience/' + item.id]">
+                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                  </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <pagination [(ngModel)]="currentPage"
+                      [totalItems]="model.count"
+                      [itemsPerPage]="itemsPerPage"
+                      (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+    <!--/col-->
+  </div>
+</div>

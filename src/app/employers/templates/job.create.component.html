@@ -1,0 +1,133 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Create New Job'|translate}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/jobs']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Job Title'|translate}}</label>
+                <input class="form-control" [(ngModel)]="model.name" name="name" placeholder="{{'Job Title'|translate}}" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Job Category'|translate}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <select2 [data]="categories" (valueChanged)="changed($event, 'category')"></select2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Job Detail'|translate}}</label>
+                 <ckeditor [(ngModel)]="model.detail"></ckeditor>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Summarizer your job'|translate}}</label>
+                <input class="form-control" [(ngModel)]="model.summary_1" name="summary_1" placeholder="{{'Summary'|translate}}" type="text"><br>
+                <input class="form-control" [(ngModel)]="model.summary_2" name="summary_2" placeholder="{{'Summary'|translate}}" type="text"><br>
+                <input class="form-control" [(ngModel)]="model.summary_3" name="summary_3" placeholder="{{'Summary'|translate}}" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Hiring Company'|translate}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <select2 [data]="companies" (valueChanged)="changed($event, 'company')" [value]="model.company"></select2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Location'|translate}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <select2 [data]="locations" (valueChanged)="changed($event, 'location')" [value]="model.location"></select2>
+                  </div>
+                  <div class="col-sm-1">
+                    <button *ngIf="!model.company || model.company=='0'" disabled="disabled" class="btn btn-danger">{{'Create'|translate}}</button>
+                    <a *ngIf="model.company && model.company!='0'" [routerLink]="['/employers/jobs/create/' + model.company + '/create-location']" [queryParams]="createReturnUrl" class="btn btn-danger">{{'Create'|translate}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label>{{'Employment Type'|translate}}</label>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <select2 [data]="employment_types" (valueChanged)="changed($event, 'type')" [value]="model.type"></select2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label>{{'Salary Detail'}}</label>
+            </div>
+            <div class="form-group col-sm-2">
+              <input class="form-control" [(ngModel)]="model.salary_min" name="salary_min" placeholder="{{'Min'|translate}}" type="text">
+            </div>
+            <div class="form-group col-sm-1" style="text-align: center; padding-top: 5px">
+              <span>{{'To'|translate}}</span>
+            </div>
+            <div class="form-group col-sm-3">
+              <input class="form-control" [(ngModel)]="model.salary_max" name="salary_max" placeholder="{{'Max'|translate}}" type="text">
+            </div>
+            <div class="form-group col-sm-2">
+              <div>
+                <select2 [data]="currencies" (valueChanged)="changed($event, 'salary_currency')" [value]="model.salary_currency"></select2>
+              </div>
+            </div>
+            <div class="form-group col-sm-2">
+              <div>
+                <select2 [data]="salary_types" (valueChanged)="changed($event, 'salary_type')" [value]="model.salary_type"></select2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" type="button" (click)="save()">
+                <i class="fa fa-dot-circle-o"></i>
+                {{'Create Job'|translate}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

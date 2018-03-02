@@ -1,0 +1,96 @@
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [config]="{show: true}">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'Create Location'|translate}}</h4>
+        <button type="button" class="close pull-right" [routerLink]="[returnUrl]" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <alert></alert>
+
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <strong>{{'Create New Location'|translate}}</strong>
+                  <div class="card-actions">
+                    <a class="btn-setting" [routerLink]="[returnUrl]"><i class="fa fa-chevron-left"></i></a>
+                  </div>
+                </div>
+                <div class="card-block">
+                  <form action="" class="form-horizontal" method="post">
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Location Name'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.name" name="name" placeholder="{{'Location Name'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Email'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.email" name="email" placeholder="{{'Email'|translate}}" type="email">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Phone'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.phone" name="phone" placeholder="{{'Phone'|translate}}" type="tel">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Address 1'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.address1" name="address1" placeholder="{{'Address 1'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Address 2'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.address2" name="address2" placeholder="{{'Address 2'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'State'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.state" name="state" placeholder="{{'State'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'City'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.city" name="city" placeholder="{{'City'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Post Code'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.post_code" name="post_code" placeholder="{{'Post Code'|translate}}" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-md-3 form-control-label">{{'Country'|translate}}</label>
+                      <div class="col-md-9">
+                        <input class="form-control" [(ngModel)]="model.country" name="country" placeholder="{{'Country'|translate}}" type="text">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9">
+                      <button class="btn btn-primary" type="button" (click)="save()"><i class="fa fa-dot-circle-o"></i> {{'Create Location'|translate}}</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

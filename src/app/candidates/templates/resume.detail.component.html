@@ -1,0 +1,181 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Resume'|translate}}: {{model.first_name}} {{model.middle_name}} {{model.last_name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/candidates/resume/list']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Logo'|translate}}</td>
+              <td>
+                <img *ngIf="model?.avatar?.length > 2" [src]="media_url + model?.avatar" class="avatar">
+                <span *ngIf="model?.avatar?.length <= 2" class="avatar">{{model.avatar}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'Name'|translate}}</td>
+              <td>{{model.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'First Name'|translate}}</td>
+              <td>{{model.first_name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Middle name'|translate}}</td>
+              <td>{{model.middle_name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Last Name'|translate}}</td>
+              <td>{{model.last_name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Phone'|translate}}</td>
+              <td>{{model.phone}}</td>
+            </tr>
+            <tr>
+              <td>{{'Email'|translate}}</td>
+              <td>{{model.email}}</td>
+            </tr>
+            <tr>
+              <td>{{'Website'|translate}}</td>
+              <td>{{model.website}}</td>
+            </tr>
+            <tr>
+              <td>{{'Address'|translate}}</td>
+              <td>{{model.address}}</td>
+            </tr>
+            <tr>
+              <td>{{'Lnk_facebook'|translate}}</td>
+              <td>{{model.lnk_facebook}}</td>
+            </tr>
+            <tr>
+              <td>{{'Lnk_linkedin'|translate}}</td>
+              <td>{{model.lnk_linkedin}}</td>
+            </tr>
+            <tr>
+              <td>{{'Lnk_tumlbr'|translate}}</td>
+              <td>{{model.lnk_tumlbr}}</td>
+            </tr>
+            <tr>
+              <td>{{'Lnk_twitter'|translate}}</td>
+              <td>{{model.lnk_twitter}}</td>
+            </tr>
+            <tr>
+              <td>{{'Country'|translate}}</td>
+              <td>{{model.country}}</td>
+            </tr>
+            <tr>
+              <td>{{'City'|translate}}</td>
+              <td>{{model.city}}</td>
+            </tr>
+            <tr>
+              <td>{{'Status'|translate}}</td>
+              <td>{{model.status}}</td>
+            </tr>
+            <tr>
+              <td>{{'Description'|translate}}</td>
+              <td>
+                <ckeditor [(ngModel)]="model.description"></ckeditor>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Education'|translate}}</strong>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>{{'Name'|translate}}</th>
+              <th>{{'Degree'|translate}}</th>
+              <th>{{'Date start'|translate}}</th>
+              <th>{{'Date end'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.education_set">
+              <td><a [routerLink]="['/candidates/education/detail-education/' + item.id]">{{item.name}}</a></td>
+              <td>{{item.degree}}</td>
+              <td>{{item.date_start}}</td>
+              <td>{{item.date_end}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Experience'|translate}}</strong>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>{{'Name'|translate}}</th>
+              <th>{{'Date start'|translate}}</th>
+              <th>{{'Date end'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.experience_set">
+              <td><a [routerLink]="['/candidates/experience/detail-experience/' + item.id]">{{item.name}}</a></td>
+              <td>{{item.date_start}}</td>
+              <td>{{item.date_end}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Experienceskill'|translate}}</strong>
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th>{{'Name'|translate}}</th>
+              <th>{{'Category'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.experienceskill_set">
+              <td><a [routerLink]="['/candidates/experience-skill/detail-experience-skill/' + item.id]">{{item.name}}</a></td>
+              <td>{{item.category}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

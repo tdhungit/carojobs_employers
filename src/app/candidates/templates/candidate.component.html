@@ -1,0 +1,50 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> {{'Candidate Manager'|translate}}
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th></th>
+              <th>{{'Name'|translate}}</th>
+              <th>{{'Email'|translate}}</th>
+              <th>{{'Birthday'|translate}}</th>
+              <th>{{'Phone'|translate}}</th>
+              <th>{{'Action'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.results">
+              <td>
+                <span *ngIf="item.avatar.length <= 2" class="avatar">{{item.avatar}}</span>
+                <img *ngIf="item.avatar.length > 2" [src]="media_url + item.avatar" class="avatar">
+              </td>
+              <td><a [routerLink]="['/candidates/detail-candidate/' + item.id]">{{item.first_name}} {{item.last_name}}</a></td>
+              <td>{{item.email}}</td>
+              <td>{{item.birthday}}</td>
+              <td>{{item.phone}}</td>
+              <td>
+                  <a title="{{'Detail'|translate}}" [routerLink]="['/candidates/detail-candidate/' + item.id]">
+                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                  </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <pagination [(ngModel)]="currentPage"
+                      [totalItems]="model.count"
+                      [itemsPerPage]="itemsPerPage"
+                      (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+    <!--/col-->
+  </div>
+</div>

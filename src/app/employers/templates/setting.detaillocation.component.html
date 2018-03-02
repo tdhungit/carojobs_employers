@@ -1,0 +1,49 @@
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" [config]="{show: true}">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{'Detail Location'|translate}}</h4>
+        <button type="button" class="close pull-right" [routerLink]="[returnUrl]" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <alert></alert>
+
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <strong>{{model.name}}</strong>
+                </div>
+                <div class="card-block">
+                  <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                      <td>{{'Name'|translate}}</td>
+                      <td>{{model.name}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{'Email'|translate}}</td>
+                      <td>{{model.email}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{'Phone'|translate}}</td>
+                      <td>{{model.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td>{{'Phone'|translate}}</td>
+                      <td>{{model.address1}}, {{model.address2}}, {{model.state}}, {{model.city}}, {{model.post_code}}, {{model.country}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

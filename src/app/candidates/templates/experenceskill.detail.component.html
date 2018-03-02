@@ -1,0 +1,31 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Experience skill'|translate}}: {{model.name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/candidates/experience-skill/list']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Name'|translate}}</td>
+              <td>{{model.name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Category'|translate}}</td>
+              <td>{{model.category}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

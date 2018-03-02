@@ -1,0 +1,46 @@
+<loading></loading>
+<alert></alert>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>{{'Hiring Company'|translate}}: {{model.name}}</strong>
+          <div class="card-actions">
+            <a class="btn-setting" [routerLink]="['/employers/settings/users']"><i class="fa fa-chevron-left"></i></a>
+          </div>
+        </div>
+        <div class="card-block">
+          <table class="table table-striped">
+            <tbody>
+            <tr>
+              <td>{{'Logo'|translate}}</td>
+              <td>
+                <img *ngIf="model?.avatar?.length > 2" [src]="media_url + model?.avatar" class="avatar">
+                <span *ngIf="model?.avatar?.length <= 2" class="avatar">{{model.avatar}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>{{'First Name'|translate}}</td>
+              <td>{{model.first_name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Phone'|translate}}</td>
+              <td>{{model.last_name}}</td>
+            </tr>
+            <tr>
+              <td>{{'Email'|translate}}</td>
+              <td>{{model.email}}</td>
+            </tr>
+            <tr>
+              <td>{{'Phone'|translate}}</td>
+              <td>{{model.phone}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+<router-outlet></router-outlet>
