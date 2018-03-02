@@ -1,0 +1,63 @@
+<loading></loading>
+<alert></alert>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> {{'Accounts Manager'|translate}}
+        </div>
+        <div class="card-block">
+          <table class="table table-bordered table-striped table-condensed">
+            <thead>
+            <tr>
+              <th></th>
+              <th>{{'Account Name'|translate}}</th>
+              <th>{{'Email'|translate}}</th>
+              <th>{{'Phone'|translate}}</th>
+              <th>{{'Status'|translate}}</th>
+              <th>{{'Action'|translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of model.results">
+              <td>
+                <span *ngIf="item.logo.length <= 2" class="avatar">{{item.logo}}</span>
+                <img *ngIf="item.logo.length > 2" [src]="media_url + item.logo" class="avatar">
+              </td>
+              <td>
+                <a [routerLink]="['/employers/settings/detail-account/' + item.id]">
+                  {{item.name}}
+                </a>
+              </td>
+              <td>{{item.email}}</td>
+              <td>{{item.phone}}</td>
+              <td>
+                <span *ngIf="item.id==currentAccountId" class="tag tag-success">Active</span>
+                <span *ngIf="item.id!=currentAccountId" class="tag tag-success">InActive</span>
+              </td>
+              <td>
+                <a title="{{'Edit'|translate}}" [routerLink]="['/employers/settings/edit-account/' + item.id]">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+                <a title="{{'Detail'|translate}}" [routerLink]="['/employers/settings/detail-account/' + item.id]">
+                  <i class="fa fa-external-link" aria-hidden="true"></i>
+                </a>
+                <a title="{{'Delete'|translate}}" [routerLink]="['/employers/settings/delete-account/'+ item.id]">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <pagination [(ngModel)]="currentPage"
+                      [totalItems]="model.count"
+                      [itemsPerPage]="itemsPerPage"
+                      (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+    <!--/col-->
+  </div>
+</div>

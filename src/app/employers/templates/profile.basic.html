@@ -1,0 +1,59 @@
+<div class="tab-pane active" id="Profile" role="tabpanel">
+  <loading></loading>
+  <alert></alert>
+
+  <form action="javascript:void(0)" class="form-horizontal " enctype="multipart/form-data" method="post">
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Avatar'|translate}}</label>
+      <div class="col-md-9">
+        <p class="form-control-static">
+          <img *ngIf="employer?.full_avatar?.length > 2" [src]="employer?.full_avatar" class="avatar avatar-large">
+          <span class="avatar avatar-large" *ngIf="employer?.full_avatar?.length <= 2">{{employer?.full_avatar}}</span>
+        </p>
+        <input type='file' (change)="uploadAvatar($event)">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Username'|translate}}</label>
+      <div class="col-md-9">
+        <p class="form-control-static">{{employer?.user?.username}}</p>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Full Name'|translate}}</label>
+      <div class="col-md-9">
+        <p class="form-control-static">{{employer?.first_name}} {{employer?.last_name}}</p>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'First Name'|translate}}</label>
+      <div class="col-md-9">
+        <input class="form-control" name="first_name" [(ngModel)]="employer.first_name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Last Name'|translate}}</label>
+      <div class="col-md-9">
+        <input class="form-control" name="last_name" [(ngModel)]="employer.last_name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Email'|translate}}</label>
+      <div class="col-md-9">
+        <input class="form-control" name="email" type="email" [(ngModel)]="employer.email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">{{'Phone'|translate}}</label>
+      <div class="col-md-9">
+        <input class="form-control" name="phone" [(ngModel)]="employer.phone">
+      </div>
+    </div>
+    <div class="form-actions row">
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <button class="btn btn-primary" type="button" (click)="update()">{{'Save changes'|translate}}</button>
+      </div>
+    </div>
+  </form>
+</div>
